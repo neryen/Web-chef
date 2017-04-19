@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Registro</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
+        <link href="../CSS/Estilo-Registro.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <script>
+        function insertar(){
+            var usu = $('#usuario').val();
+            var con = $('#password').val();
+            var recon = $('#repassword').val();
+
+            if(con == "" || recon == "" || usu == ""){
+                alert("Debe rellenar todos los campos");
+            }else{
+                if(con != recon){
+                    alert("No coincide la contraseña");
+                }else{
+                    alert("Usuario registrado");    
+                }
+            }
+        } 
+    </script>
+    <body> 
+        <div class="reg">
+            <form>
+                <input type="email" class="inicio" name="usuario" placeholder="Usuario" id='usuario' pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$" title="Corresponde al email" value="" required="required"/>
+                <input type="password" class="inicio" name="password" placeholder="Contraseña" id='password' value="" required="required"/>
+                <input type="password" class="inicio" name="repassword" placeholder="Confirmar Contraseña" id='repassword' value="" required="required"/>
+                <input type="submit" name="Enviar" value="Enviar" id='Enviar' onclick="insertar()"/>
+                <a id="en" href="Login.html">Volver al inicio</a>
+            </form>
+        </div>
+    </body>
+</html>
+ 
