@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Page Design</title>
+<style type="text/css">
+div{
+   background-color:lightcoral;
+   border:1px solid black;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: lightblue;
+}
+li{
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 10%;
+    text-decoration: none;
+}
+
+</style>
+</head>
+<body>
+<header><div><p>Cabecera</p></div></header>
+<div><table id="tablascript" border="1"></table></div>
+<div>
+<ul>
+  <li>
+    <p><img src="https://s-media-cache-ak0.pinimg.com/236x/be/00/64/be0064c7ad88db0843f8a385faae728b.jpg" width="75" height="75"></p>
+    </li>
+    <li>
+        <p>Brandy</p>
+    </li>
+    <li>
+        <p>2</p>
+    </li>
+    <li>
+        <p>20€</p>
+    </li>
+</ul>
+</div>
+<div>
+    <ul>
+        <li>
+            <p>fotos</p>
+        </li>
+        <li>
+            <p>nombre</p>
+        </li>
+        <li>
+            <p>Total :</p>
+        </li>
+        <li>
+            <p>500.000</p>
+        </li>
+    </ul>
+</div>
+<div>
+  <p>Forma de pago</p>
+    <form>
+      <input type="radio" name="metodo_pago">Visa
+      <input type="radio" name="metodo_pago">Efectivo<br><br>
+      <input type="radio" name="metodo_envio">Recoger
+      <input type="radio" name="metodo_envio">Llevar a domicilio
+      <input type="radio" name="metodo_envio">Cocina a domicilio<br><br>
+      <input type="submit" value="Comprar">
+    </form>
+</div>
+<footer><div>Pie de página</div></footer>
+<script>
+    function generarTabla(){
+    var range = [["vij","iviv"], ["iuviu","iubi"], ["uyvyuv", "iuubn"], ["rezre","uytg"]];
+     for (var i = 0; i < range.length; i++){   
+       $('#tablascript').append("<tr id='"+i+"'></tr>");
+       
+       for (var j = 0; j < range[i].length; j++){  
+         $("#"+i).append("<td>"+range[i][j]+"</td>");
+       }
+     }
+     
+     $("tr:odd").css("background-color", "#ggg"); // filas impares
+     $("tr:even").css("background-color", "#ccc"); // filas pares
+    
+        generarTabla();
+    }
+    
+</script>
+</body>
+</html>
+
