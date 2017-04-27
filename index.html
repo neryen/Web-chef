@@ -77,21 +77,21 @@ li{
 <footer><div>Pie de página</div></footer>
 <script>
     function generarTabla(){
-    var range = [["vij","iviv"], ["iuviu","iubi"], ["uyvyuv", "iuubn"], ["rezre","uytg"]];
-     for (var i = 0; i < range.length; i++){   
+    var datos = [["vij","iviv"], ["iuviu","iubi"], ["uyvyuv", "iuubn"], ["rezre","uytg"]];
+     for (var i = 0; i < datos.length; i++){   
        $('#tablascript').append("<tr id='"+i+"'></tr>");
        
-       for (var j = 0; j < range[i].length; j++){  
-         $("#"+i).append("<td>"+range[i][j]+"</td>");
+       for (var j = 0; j < datos[i].length; j++){  
+         $("#"+i).append("<td>"+datos[i][j]+"</td>");
        }
      }
      
      $("tr:odd").css("background-color", "#ggg"); // filas impares
      $("tr:even").css("background-color", "#ccc"); // filas pares
     
-        generarTabla();
+        
     }
-    
+    generarTabla();
 </script>
 </body>
 </html>
