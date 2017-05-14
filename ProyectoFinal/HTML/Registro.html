@@ -20,47 +20,64 @@ and open the template in the editor.
             var usu = $('#usuario').val();
             var con = $('#password').val();
             var recon = $('#repassword').val();
+            var nomb = $('#nombre').val();
+            var ape = $('#apellidos').val();
+            var dni = $('#dni').val();
+            dni = dni.toUpperCase(dni);
+            var edad = $('#edad').val();
 
-            if(con == "" || recon == "" || usu == ""){
+            if(con == "" || recon == "" || usu == "" || nomb=="" || ape=="" || dni=="" || edad==""){
                 alert("Debe rellenar todos los campos");
             }else{
-                if(con != recon){
-                    alert("No coincide la contraseña");
+                if(!usu.match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$")){
+                    alert("El email no es valido");
                 }else{
-                    alert("Usuario registrado");    
+                    if(!nomb.match("(^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$)*")){
+                        alert("El nombre no es valido");
+                    }else{
+                        if(!ape.match("(^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$)*")){
+                            alert("Los apellidos no son validos");
+                        }else{
+                            if(!dni.match("^([0-9]{8}[A-Z]{1})|[XYZ][0-9]{7}[A-Z]$")){
+                                alert("El dni no es valido");
+                            }else{
+                                if(edad<18){
+                                    alert("No puede ser menor de 18 años");
+                                }else{
+                                    if(con != recon){
+                                        alert("No coincide la contraseña");
+                                    }else{
+                                        alert("Usuario registrado");    
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
-        } 
+        }
     </script>
     <body> 
-       <header> 
-           <ul class="contenedor">
-               <li class="logo">
-                  <p><a href="Principal.html">IMAGEN LOGO</a></p>
-               </li>
-               
-               <li>
-                   <input class="busqueda" type="search"/><i class="material-icons md-36">search</i>
-               </li>
-               
-               <li>
-                   <a href="Registro.html">Registrate</a>
-               </li>
-           </ul>
-        </header>
-        
         <div class="reg">
             <form>
-                <input type="email" class="inicio" name="usuario" placeholder="Usuario" id='usuario' pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$" title="Corresponde al email" value="" required="required"/>
-                <input type="password" class="inicio" name="password" placeholder="Contraseña" id='password' value="" required="required"/>
-                <input type="password" class="inicio" name="repassword" placeholder="Confirmar Contraseña" id='repassword' value="" required="required"/>
-                <input type="submit" name="Enviar" value="Enviar" id='Enviar' onclick="insertar()"/>
+                <input type="email" class="inicio" name="usuario" placeholder="Usuario" id='usuario'/>
+                <input type="password" class="inicio" name="password" placeholder="Contraseña" id='password'/>
+                <input type="password" class="inicio" name="repassword" placeholder="Confirmar Contraseña" id='repassword'/>
+                <hr/>
+                <input type="text" class="inicio" name="nombre" placeholder="Nombre" id='nombre'>
+                <input type="text" class="inicio" name="apellidos" placeholder="Apellidos" id='apellidos'>
+                <input type="text" class="inicio" name="dni" placeholder="DNI" id='dni'>
+                <input type="number" class="inicio" name="edad" placeholder="Edad" id='edad'>
+                <hr/>
+                <div class="check">
+                    Cliente<input type="radio" checked class="inicio" name="radio" id='cliente'>
+                    Chef<input type="radio" class="inicio" name="radio" id='chef'>
+                </div>
+                
+                <input type="button" name="Enviar" value="Enviar" id='Enviar' onclick="insertar()"/>
                 <a id="en" href="Login.html">Volver al inicio</a>
             </form>
         </div>
-        <footer>
-            <p class="copyright">Copyright © 2017 Proyecto Final Desarrollo de Aplicaciones Multiplataforma. Pilar Cuaresma, Ángel García y Guillermo Ruiz</p>
-	    </footer> 
     </body>
 </html>
  

@@ -22,42 +22,27 @@ and open the template in the editor.
             if(con == "" || usu == ""){
                 alert("Debe rellenar todos los campos");
             }else{
-                if(usu != 'pilar@gmail.com' || con != 'qqq'){
-                    alert("No se encuentra registrado");
+                if(!usu.match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$")){
+                    alert("El email no es valido");
                 }else{
-                    alert("Se encuentra registrado");    
+                    if(usu != 'pilar@gmail.com' || con != 'qqq'){
+                        alert("No se encuentra registrado");
+                    }else{
+                        alert("Se encuentra registrado");    
+                    }
                 }
             }
         } 
     </script>
-    <body>
-       <header> 
-           <ul class="contenedor">
-               <li class="logo">
-                  <p><a href="Principal.html">IMAGEN LOGO</a></p>
-               </li>
-               
-               <li>
-                   <input class="busqueda" type="search"/><i class="material-icons md-36">search</i>
-               </li>
-               
-               <li>
-                   <a href="Registro.html">Registrate</a>
-               </li>
-           </ul>
-        </header>
-        
+    <body>       
         <div class="ini">
             <form>
-                <input type="text" class="inicio" name="usuario" required="required" placeholder="Usuario" id='usuario' pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$" title="Corresponde al email" value=""/>
-                <input type="password" class="inicio" name="password" required="required" placeholder="Contraseña" id='password' value=""/>
-                <input type="submit" name="iniciar" value="Iniciar Sesión" id='iniciar' onclick="comprobar()"/>
+                <input type="text" class="inicio" name="usuario" placeholder="Usuario" id='usuario' value=""/>
+                <input type="password" class="inicio" name="password" placeholder="Contraseña" id='password' value=""/>
+                <input type="button" name="iniciar" value="Iniciar Sesión" id='iniciar' onclick="comprobar()"/>
                 <a id="en" href="Registro.html">Registrate gratis</a>
             </form>
         </div>
-        <footer>
-            <p class="copyright">Copyright © 2017 Proyecto Final Desarrollo de Aplicaciones Multiplataforma. Pilar Cuaresma, Ángel García y Guillermo Ruiz</p>
-	    </footer>  
     </body>
 </html>
 
