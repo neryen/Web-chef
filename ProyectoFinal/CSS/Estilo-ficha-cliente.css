@@ -1,0 +1,28 @@
+
+body{
+    background-image:url('../Imagenes/bg-wood.jpg');
+    width: 100%;
+    height: auto;
+    
+}
+
+th {
+    text-align: center;
+}
+.caja{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+p{
+    text-align: center
+}
+.datos{
+    margin-left: 30%
+    
+    
+}
+
+
+.tabla1{
+   margin-left: 10%
+    
+}
