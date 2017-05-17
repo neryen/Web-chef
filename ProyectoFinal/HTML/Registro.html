@@ -25,6 +25,8 @@ and open the template in the editor.
             var dni = $('#dni').val();
             dni = dni.toUpperCase(dni);
             var edad = $('#edad').val();
+            
+            var patron = /^[a-zA-Z ñÑ.áÁéÉíÍóÓúÚäëïöü\'-]*$/;
 
             if(con == "" || recon == "" || usu == "" || nomb=="" || ape=="" || dni=="" || edad==""){
                 alert("Debe rellenar todos los campos");
@@ -32,23 +34,26 @@ and open the template in the editor.
                 if(!usu.match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$")){
                     alert("El email no es valido");
                 }else{
-                    if(!nomb.match("(^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$)*")){
+                    if(!patron.test(nomb)){
                         alert("El nombre no es valido");
                     }else{
-                        if(!ape.match("(^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$)*")){
+                        if(!patron.test(ape)){
                             alert("Los apellidos no son validos");
                         }else{
-                            if(!dni.match("^([0-9]{8}[A-Z]{1})|[XYZ][0-9]{7}[A-Z]$")){
+                            var vdni = nif(dni);
+                            if(vdni == null){ 
                                 alert("El dni no es valido");
+                            }else if(vdni == false){
+                                alert("La letra del dni no es valida");
                             }else{
-                                if(edad<18){
-                                    alert("No puede ser menor de 18 años");
+                                if(edad>80 || edad<15){
+                                    alert("La edad no es valida");
                                 }else{
                                     if(con != recon){
                                         alert("No coincide la contraseña");
                                     }else{
                                         alert("Usuario registrado");    
-                                    }
+                                    }   
                                 }
                             }
                         }
@@ -56,6 +61,27 @@ and open the template in the editor.
                 }
             }
         }
+        
+        function nif(dni) {
+            var patrondni;
+            patrondni = /^\d{8}[a-zA-Z]$/;
+ 
+            if(patrondni.test (dni) == true){
+                var numero = dni.substr(0,dni.length-1);
+                var letr = dni.substr(dni.length-1,1);
+                 numero = numero % 23;
+                var letra='TRWAGMYFPDXBNJZSQVHLCKET';
+                letra=letra.substring(numero,numero+1);
+                if (letra!=letr.toUpperCase()) {
+                    return false;
+                }else{
+                    return true;
+                }
+            }else{
+                return null;
+            }
+        }       
+        
     </script>
     <body> 
         <div class="reg">
