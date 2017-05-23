@@ -25,15 +25,16 @@ and open the template in the editor.
         
         function ulpedidos(){
             var result = ["../Imagenes/comida-kawaii-22-800x519.jpg","Tallarines kawai","../Imagenes/comida-kawaii-22-800x519.jpg","Tallarines kawai","../Imagenes/comida-kawaii-22-800x519.jpg","Tallarines kawai"];
+            var estilo="text-align: center";
             
             if(result.length<1){
                 $("#ulped").append("<tr><th>¿Todavia no has pedido nada?</th></tr>");
             }else{
-                $("#ulped").append("<tr><th>Últimos platos pedidos</th></tr>");
+                $("#ulped").append("<tr><th style='"+estilo+"'>Últimos platos pedidos</th></tr>");
                 var clase = "img-responsive";
                 
                 for(var i=0;i<result.length;i=i+2){
-                    $("#ulped").append("<tr><td><img src='"+result[i]+"' class='"+clase+"'/><p>"+result[i+1]+"</p></td></tr>");    
+                    $("#ulped").append("<tr><td><img src='"+result[i]+"' class='"+clase+"'/><p  style='"+estilo+"'>"+result[i+1]+"</p></td></tr>");    
                 }
             }
         }
@@ -232,7 +233,7 @@ and open the template in the editor.
                                 <tr class="row">
                                     <td><p class="datos" >Nombre:</p></td>
                                     <td></td>
-                                    <td class="col-xs-1"><input type="text" name="nombre" style="display: none" class="form-control input" id="nombreinput"><label class="label1" id="nombre"></label></td>
+                                    <td class="col-xs-6"><input type="text" name="nombre" style="display: none" class="form-control input" id="nombreinput"><label class="label1" id="nombre"></label></td>
                                     <td></td>
                                     <td><p class="datos">DNI:</p></td>
                                     <td></td>
@@ -252,12 +253,12 @@ and open the template in the editor.
                         </form>
                     </div>
                     
-                    <div class="well caja  form-group" style="overflow-x:auto">
+                    <div class="well caja  form-group table-responsive" style="overflow-x:auto">
                         <form>
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th colspan="7"><h1>Dirección</h1></th>
+                                    <th colspan="8"><h1>Dirección</h1></th>
                                 </tr>
                                 </thead>
                                 <tbody>
