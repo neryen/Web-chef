@@ -10,38 +10,45 @@ and open the template in the editor.
         <title>Inicio</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
-        <link href="../CSS/Estilo-Login.css" rel="stylesheet" type="text/css"/>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="../CSS/Estilo-ficha-cliente.css" rel="stylesheet" type="text/css"/>
     </head> 
     <script>
-        function comprobar(){
+        function comprobar() {
             var usu = $('#usuario').val();
             var con = $('#password').val();
 
-            if(con == "" || usu == ""){
+            if (con == "" || usu == "") {
                 alert("Debe rellenar todos los campos");
-            }else{
-                if(!usu.match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$")){
+            } else {
+                if (!usu.match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$")) {
                     alert("El email no es valido");
-                }else{
-                    if(usu != 'pilar@gmail.com' || con != 'qqq'){
+                } else {
+                    if (usu != 'pilar@gmail.com' || con != 'qqq') {
                         alert("No se encuentra registrado");
-                    }else{
-                        alert("Se encuentra registrado");    
+                    } else {
+                        alert("Se encuentra registrado");
                     }
                 }
             }
-        } 
+        }
     </script>
-    <body>       
-        <div class="ini">
-            <form>
-                <input type="text" class="inicio" name="usuario" placeholder="Usuario" id='usuario' value=""/>
-                <input type="password" class="inicio" name="password" placeholder="Contraseña" id='password' value=""/>
-                <input type="button" name="iniciar" value="Iniciar Sesión" id='iniciar' onclick="comprobar()"/>
-                <a id="en" href="Registro.html">Registrate gratis</a>
-            </form>
+    <body>
+        <div class="container" >
+            <div class="row vertical-center">
+                <div class="col-sm-4 well ">
+                    <form>
+                        <input type="text" class="form-control" name="usuario" placeholder="Usuario" id='usuario' value=""/>
+                        <br>
+                        <input type="password" class="form-control" name="password" placeholder="Contraseña" id='password' value=""/>
+                        <br>
+                        <input  class="form-control  btn-default" type="button" name="iniciar" value="Iniciar Sesión" id='iniciar' onclick="comprobar()"/>
+                        <br>
+                        <a id="en" href="Registro.html">Registrate gratis</a>
+                    </form>
+                </div>
+            </div>
         </div>
     </body>
 </html>
